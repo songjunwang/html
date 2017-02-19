@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>操作复选框</title>
+		<style>
+			ul{
+			    padding-left: initial;
+			}
+			li{
+				list-style: none;
+			}
+			body > input{
+				width: 60px;
+				height: 30px;
+				font-size: initial;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="selectAll" value="全选"/>
+		<input type="button" id="unSelectAll" value="全不选"/>
+		<input type="button" id="invertSelect" value="反选"/>
+		<ul>
+			<li><input type="checkbox" name="books" />遇见未知的自己</li>
+			<li><input type="checkbox" name="books" />原来你也在这里</li>
+			<li><input type="checkbox" name="books" />不忘初心，方得始终</li>
+			<li><input type="checkbox" name="books" />不畏将来，不念过去</li>
+			<li><input type="checkbox" name="books" />一切都是最好的安排</li>
+		</ul>
+		
+		<script>
+			//获取到所有name为books的复选框
+			var books = document.getElementsByName('books');
+			
+			//为全选按钮绑定点击事件
+			document.getElementById('selectAll').onclick = function(){
+				for (var i = 0;i < books.length;i++) {
+					books[i].checked = true;
+				}
+			}
+			
+			//为全不选按钮添加点击事件
+			document.getElementById('unSelectAll').onclick = function(){
+				for (var i = 0;i < books.length;i++) {
+					books[i].checked = false;
+				}
+			}
+			
+			//为反选按钮添加点击事件
+			document.getElementById('invertSelect').onclick = function(){
+				for (var i = 0;i < books.length;i++) {
+					if(books[i].checked) books[i].checked = false;
+					else books[i].checked = true;
+				}
+			}
+		</script>
+	</body>
+</html>
